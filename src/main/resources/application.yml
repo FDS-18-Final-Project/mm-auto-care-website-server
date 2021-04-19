@@ -1,0 +1,53 @@
+spring:
+  profiles:
+    active: local
+    include: smtp-gmail
+  jpa:
+    open-in-view: false
+
+---
+spring:
+  config:
+    activate:
+      on-profile: local
+  datasource:
+    hikari:
+      driver-class-name: org.h2.Driver
+      jdbc-url: jdbc:h2:mem:testdb;MODE=MYSQL;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE;
+    username: sa
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+        format_sql: true
+    show-sql: true
+    generate-ddl: true
+  logging:
+    level:
+      org:
+        hibernate:
+          SQL: DEBUG
+          type:
+            descriptor:
+              sql:
+                BasicBinder: TRACE
+---
+spring:
+  config:
+    activate:
+      on-profile: prod
+  datasource:
+    hikari:
+      driver-class-name: org.mariadb.jdbc.Driver
+      jdbc-url: jdbc:mariadb://192.168.1.9:3306/hashtagmap
+    username: songpapeople
+    password: thdvkrntkfkaemf
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
