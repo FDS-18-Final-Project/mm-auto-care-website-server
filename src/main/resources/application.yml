@@ -42,12 +42,24 @@ spring:
   datasource:
     hikari:
       driver-class-name: org.mariadb.jdbc.Driver
-      jdbc-url: jdbc:mariadb://192.168.1.9:3306/hashtagmap
-    username: songpapeople
-    password: thdvkrntkfkaemf
+      jdbc-url: jdbc:mariadb://mm-auto-care-db2.cthrfmz6gizk.ap-northeast-2.rds.amazonaws.com/mmautocare
+    username: mmautocare
+    password: mmautocare12
   jpa:
     hibernate:
       ddl-auto: validate
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+        format_sql: true
+    show-sql: true
+    generate-ddl: true
+  logging:
+    level:
+      org:
+        hibernate:
+          SQL: DEBUG
+          type:
+            descriptor:
+              sql:
+                BasicBinder: TRACE

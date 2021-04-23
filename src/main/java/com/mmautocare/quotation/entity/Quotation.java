@@ -23,6 +23,7 @@ import java.util.Set;
 public class Quotation {
 
     private static final String SERVICES_DELIMITER = ",";
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

@@ -22,4 +22,7 @@ public class QuotationService {
                 .orElseThrow(() -> new IllegalArgumentException("해당 id는 존재하지 않습니다."));
     }
 
+    public void deleteAll() {
+        quotationRepository.deleteAll();
+    }
 }

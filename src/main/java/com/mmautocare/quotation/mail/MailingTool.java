@@ -2,7 +2,7 @@ package com.mmautocare.quotation.mail;
 
 import com.mmautocare.quotation.entity.Quotation;
 import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.util.ResourceUtils;
@@ -13,7 +13,7 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 
-@AllArgsConstructor(access = AccessLevel.PRIVATE)
+@RequiredArgsConstructor(access = AccessLevel.PRIVATE)
 public class MailingTool {
 
     private static final boolean IS_MULTIPART = true;

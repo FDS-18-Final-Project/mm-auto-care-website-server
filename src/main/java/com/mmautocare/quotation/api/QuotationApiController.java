@@ -5,6 +5,7 @@ import com.mmautocare.quotation.mail.QuotationMailService;
 import com.mmautocare.quotation.service.QuotationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -30,6 +31,12 @@ public class QuotationApiController {
     @GetMapping("/{id}/send-mails")
     public ResponseEntity<Boolean> sendMails(@PathVariable Long id) {
         return ResponseEntity.ok(quotationMailService.sendMails(id));
+    }
+
+    @DeleteMapping
+    public ResponseEntity<Void> deleteAll() {
+        quotationService.deleteAll();
+        return ResponseEntity.noContent().build();
     }
 
 }
