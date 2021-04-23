@@ -21,7 +21,7 @@ cp ./build/libs/*.jar $REPOSITORY/
 
 echo "> 현재 구동중인 애플리케이션 pid 확인"
 
-CURRENT_PID=$(pgrep -f mm-auto-care-website-server)
+CURRENT_PID=$(pgrep -f mm-auto-care)
 
 echo "$CURRENT_PID"
 
@@ -35,7 +35,7 @@ fi
 
 echo "> 새 어플리케이션 배포"
 
-JAR_NAME=$(ls $REPOSITORY/ |grep 'mm-auto-care-website-server' | tail -n 1)
+JAR_NAME=$(ls -tr $REPOSITORY/ |grep 'mm-auto-care' | tail -n 1)
 
 echo "> JAR Name: $JAR_NAME"
 

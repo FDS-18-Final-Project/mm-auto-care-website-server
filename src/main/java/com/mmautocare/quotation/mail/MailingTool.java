@@ -45,7 +45,7 @@ public class MailingTool {
 
     public MimeMessage createMessageToManager() throws MessagingException {
         // TODO: 2021-04-20 이메일주소 바꾸기
-        this.messageHelper.setTo("ebseud6135@gmail.com");
+        this.messageHelper.setTo("iamkjw77@gmail.com");
         this.messageHelper.setText(this.quotation.makeManagerMailText());
         return this.messageToSend;
     }
