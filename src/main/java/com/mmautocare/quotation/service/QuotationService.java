@@ -6,6 +6,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class QuotationService {
@@ -20,6 +22,10 @@ public class QuotationService {
     public Quotation findById(Long id) {
         return quotationRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("해당 id는 존재하지 않습니다."));
+    }
+
+    public List<Quotation> findAll() {
+        return quotationRepository.findAll();
     }
 
     public void deleteAll() {

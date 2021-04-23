@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.net.URI;
+import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
@@ -22,11 +23,22 @@ public class QuotationApiController {
     private final QuotationService quotationService;
     private final QuotationMailService quotationMailService;
 
+    @GetMapping
+    public ResponseEntity<List<Quotation>> findAll() {
+        return ResponseEntity.ok(quotationService.findAll());
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Quotation> findById(@PathVariable Long id) {
+        return ResponseEntity.ok(quotationService.findById(id));
+    }
+
     @PostMapping
     public ResponseEntity<Long> save(Quotation quotation) {
         Quotation save = quotationService.save(quotation);
         return ResponseEntity.created(URI.create("/" + save.getId())).build();
     }
+
 
     @GetMapping("/{id}/send-mails")
     public ResponseEntity<Boolean> sendMails(@PathVariable Long id) {
