@@ -35,7 +35,7 @@ fi
 
 echo "> 새 어플리케이션 배포"
 
-JAR_NAME=$(ls $REPOSITORY/ |grep '/mm-auto-care-website-server' | tail -n 1)
+JAR_NAME=$(ls $REPOSITORY/ |grep 'mm-auto-care-website-server' | tail -n 1)
 
 echo "> JAR Name: $JAR_NAME"
 
