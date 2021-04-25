@@ -35,9 +35,11 @@ public class QuotationApiController {
     }
 
     @PostMapping
-    public ResponseEntity<Long> save(@RequestBody Quotation quotation) {
+    public ResponseEntity<Quotation> save(@RequestBody Quotation quotation) {
         Quotation save = quotationService.save(quotation);
-        return ResponseEntity.created(URI.create("/" + save.getId())).build();
+        return ResponseEntity
+                .created(URI.create("/" + save.getId()))
+                .body(save);
     }
 
 
