@@ -35,7 +35,7 @@ public class Quotation {
     private String make;
     private String model;
     private String year;
-    private String service;
+    private String services;
     private String message;
 
     public String makeMailSubject() {
@@ -54,7 +54,7 @@ public class Quotation {
                 this.make,
                 this.model,
                 this.year,
-                this.service,
+                this.services,
                 this.message);
     }
 
