@@ -26,7 +26,7 @@ public class Quotation {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String fullName;
+    private String name;
 
     @Email(message = "email 형식에 맞지 않습니다.")
     private String email;
@@ -43,12 +43,12 @@ public class Quotation {
     }
 
     public String makeCustomerMailText() {
-        return String.format(MailFormat.CUSTOMER_MAIL_FORMAT.getFormat(), this.fullName);
+        return String.format(MailFormat.CUSTOMER_MAIL_FORMAT.getFormat(), this.name);
     }
 
     public String makeManagerMailText() {
         return String.format(MailFormat.MANAGER_MAIL_FORMAT.getFormat(),
-                this.fullName,
+                this.name,
                 this.email,
                 this.phoneNumber,
                 this.make,
