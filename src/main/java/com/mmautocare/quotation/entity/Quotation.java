@@ -7,13 +7,11 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.Email;
-import java.util.Set;
 
 @Getter
 @Builder
@@ -37,10 +35,7 @@ public class Quotation {
     private String make;
     private String model;
     private String year;
-
-    @ElementCollection
-    private Set<String> services;
-
+    private String service;
     private String message;
 
     public String makeMailSubject() {
@@ -59,7 +54,7 @@ public class Quotation {
                 this.make,
                 this.model,
                 this.year,
-                String.join(SERVICES_DELIMITER, this.services),
+                this.service,
                 this.message);
     }
 
