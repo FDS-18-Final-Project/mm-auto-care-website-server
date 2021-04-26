@@ -1,7 +1,7 @@
 spring:
   profiles:
     active: local
-    include: smtp-gmail
+    include: smtp
   jpa:
     open-in-view: false
 
