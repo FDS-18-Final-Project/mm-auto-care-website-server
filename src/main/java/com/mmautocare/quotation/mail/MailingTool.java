@@ -20,6 +20,7 @@ public class MailingTool {
     private static final String LOGO_CLASSPATH = "classpath:static/kakao-logo.jpg";
     private static final String LOGO_CONTENT_ID = "logo";
     private static final String MANAGER_EMAIL_ADDRESS = "info@lvps.ca";
+    private static final String FROM_EMAIL_ADDRESS = "dundung6135@gmail.com";
 
     private final MimeMessage messageToSend;
     private final MimeMessageHelper messageHelper;
@@ -44,8 +45,8 @@ public class MailingTool {
     }
 
     public MimeMessage createMessageToManager() throws MessagingException {
-        // TODO: 2021-04-20 이메일주소 바꾸기
-        this.messageHelper.setTo("iamkjw77@gmail.com");
+        this.messageHelper.setFrom(FROM_EMAIL_ADDRESS);
+        this.messageHelper.setTo(MANAGER_EMAIL_ADDRESS);
         this.messageHelper.setText(this.quotation.makeManagerMailText());
         return this.messageToSend;
     }

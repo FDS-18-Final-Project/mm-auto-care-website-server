@@ -20,10 +20,10 @@ public class QuotationMailService {
     public boolean sendMails(Long id) {
         Quotation quotation = quotationService.findById(id);
         try {
-            sendMailToCustomer(MailingTool.preSet(mailSender.createMimeMessage(), quotation));
+//            sendMailToCustomer(MailingTool.preSet(mailSender.createMimeMessage(), quotation));
             sendMailToManager(MailingTool.preSet(mailSender.createMimeMessage(), quotation));
             return true;
-        } catch (IOException | MessagingException ex) {
+        } catch (MessagingException ex) {
             throw new RuntimeException("Mail에서 예상치 못한 예외가 발생했습니다.");
         }
     }
